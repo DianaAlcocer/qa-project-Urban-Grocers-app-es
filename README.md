@@ -1,41 +1,82 @@
-# Diana Carolina Alcocer Garcia - Grupo 27.o - Sprint 7
-
 # Proyecto Urban Grocers
-## _Pruebas para el parámetro 'name' al crear un kit_
+
+### _Pruebas automatizadas para comprobar el campo 'name' al crear un kit de productos_
+
+### Descripción
+
+- Se diseñó una solicitud para crear un nuevo usuario mediante solicitud API.
+- Se diseñó una solicitud para crear un kit personal para este usuario.
+- Se automatizaron pruebas exploratorias para el parametro "name" en el cuerpo de la solicitud.
+
+### Contenido
+
+data.py
+
+sender_stand_request.py
+
+configuration.py
+
+create_kit_name_kit_test.py
+
+### Proceso de las pruebas
+
+1. Se crea un usuario nuevo.
+2. Se obtiene el authToken para ese usuario y se utiliza en el encabezado de la solicitud para crear un kit nuevo.
+3. Se especifica el valor para el parámetro 'name' que se pretende probar en el cuerpo de la solicitud para crear un kit nuevo.
+4. Se envia la solicitud para crear un kit nuevo.
+5. Se comprueba que la respuesta obtenida corresponde a la esperada para cada prueba: 201-prueba positiva o 400-prueba negativa. Y que el valor para el parámetro 'name' sea el mismo que el enviado en la solicitud.
+
+### Documentación
 
 La documentación de la API, la encuentras en:
-- <URL_SERVICE>/docs/
+- <URL_del_Servidor_de_Urban_Grocers>/docs/
 
-Necesitas tener instalados los siguientes paquetes y programas: 
+Según los requerimientos, se utilizó la siguiente lista de comprobación:
 
-| Type     | Program                   |
-|----------|---------------------------|
-| Terminal | Cywing                    |
-| IDE      | PyCharm Community Edition |
+| No. | Description                                                                                                | ER:                      |
+|-----|------------------------------------------------------------------------------------------------------------|--------------------------|
+| 1   | El número permitido de caracteres (1): kit_body = { "name": "a"}                                           | Código de respuesta: 201 |
+| 2   | El número permitido de caracteres (511): kit_body = { "name":<Valor de prueba 1>}                          | Código de respuesta: 201 |
+| 3   | El número de caracteres es menor que la cantidad permitida (0): kit_body = { "name": "" }                  | Código de respuesta: 400 |
+| 4   | El número de caracteres es mayor que la cantidad permitida (512): kit_body = { "name":<Valor de prueba 2>} | Código de respuesta: 400 |
+| 5   | Se permiten caracteres especiales: kit_body = { "name": ""№%@"," }	                                        | Código de respuesta: 201 |
+| 6   | Se permiten espacios: kit_body = { "name": " A Aaa " }	                                                    | Código de respuesta: 201 |
+| 7   | Se permiten números: kit_body = { "name": "123" }                                                          | Código de respuesta: 201 |
+| 8   | El parámetro no se pasa en la solicitud: kit_body = { }                                                    | Código de respuesta: 400 |
+| 9   | Se ha pasado un tipo de parámetro diferente (número): kit_body = { "name": 123 }                           | Código de respuesta: 400 |
 
-- Puedes utilizar otras terminales como WSL, Git Bash o CMD.R
- y otros editores de código como Visual Studio Code.
+Valor de prueba 1:
+>"AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC"
 
-| Package  | Terminal_command     |       
-|----------|----------------------|       
-| pytest   | pip install pytest   |       
-| requests | pip install requests |
+Valor de prueba 2:
+>"AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD"
 
-- Puedes utilizar la terminal o buscarlos en la pestaña _Python packages_ dentro de la aplicación PyCharm.
+### Configuración
 
-Pasos a seguir para la ejecución de las pruebas:
-1. Abrir la carpeta del proyecto en un editor de código o IDE.
-2. Instalar paquetes _pytest_ y _requests_.
-3. Actualizar la url del servidor en _URL_SERVICE_ en el archivo _configuration.py_. No olvides eliminar la última diagonal. 
-4. Abrir la terminal y ubicarte en la carpeta del proyecto con el comando _cd <ruta/del/proyecto>_. Ejemplo:
-```sh
-cd projects/qa-project-Urban-Grocers-app-es
-```
+#### Requisitos
 
-5. Ejecuta el comando _pytest_:
-```sh
+- Variables de entorno:
+  - URL_SERVICE (URL del servidor de Urban Grocers)
+- Un Editor de código:
+  - *Pycharm*
+- Paquetes:
+  - _pytest_
+  - _requests_
+
+#### Instrucciones
+
+1. Clonar o descargar la carpeta del proyecto
+2. Abrirla en un editor de código o IDE como _Pycharm_
+3. Instalar paquetes _pytest_ y _requests_ desde terminal o en _python packages_
+4. Actualizar la url del servidor en _URL_SERVICE_ en el archivo _configuration.py_. No olvides eliminar la última diagonal. 
+5. Abrir la terminal y ubicarte en la carpeta del proyecto con el comando _cd <ruta/del/proyecto>_:
+    ```sh
+    cd projects/qa-project-Urban-Grocers-app-es
+    ```
+6. Ejecuta el comando _pytest_:
+    ```sh
    pytest
-``` 
+    ``` 
 - El comando _pytest_ ejecutará los archivos que comienzan con test_ o terminan con _test dentro de la ruta 
 del proyecto especificada, no distingue entre mayúsculas y minúsculas.
 
@@ -51,10 +92,3 @@ del proyecto especificada, no distingue entre mayúsculas y minúsculas.
     "name": "Mi conjunto",
     "cardId": "1"
 }
-
-Funcionamiento de las pruebas:
-1. Se crea un usuario nuevo.
-2. Se obtiene el authToken para ese usuario y se utiliza en el encabezado de la solicitud para crear un kit nuevo.
-3. Se especifica el valor para el parámetro 'name' que se pretende probar en el cuerpo de la solicitud para crear un kit nuevo.
-4. Se envia la solicitud para crear un kit nuevo.
-5. Se comprueba que la respuesta obtenida corresponde a la esperada para cada prueba: 201-prueba positiva o 400-prueba negativa. Y que el valor para el parámetro 'name' sea el mismo que el enviado en la solicitud.

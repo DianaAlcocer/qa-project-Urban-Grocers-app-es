@@ -9,7 +9,7 @@ user_body = {
 }
 
 kit_header = {
-    "Authorization": "",   #Debe incluir el (authToken) del usuario para crear un kit de este usuario
+    "Authorization": "",  # Debe incluir el (authToken) del usuario para crear un kit de este usuario
     "Content-Type": "application/json"
 }
 
@@ -18,7 +18,7 @@ kit_body = {
     "cardId": "1"
 }
 
-#Value for tests: 'name' for new kit
+# Value for tests: 'name' for new kit
 
 one_letter = 'a'
 letter_511 = ('Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd'
