@@ -1,4 +1,4 @@
-# Proyecto Urban Grocers
+# Proyecto Urban Grocers - Sprint_7
 
 ### _Pruebas automatizadas para comprobar el campo 'name' al crear un kit de productos_
 
