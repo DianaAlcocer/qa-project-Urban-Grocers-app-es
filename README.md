@@ -1,4 +1,4 @@
-# Proyecto Urban Grocers - Sprint_7
+# Proyecto Urban Grocers - Sp_7
 
 ### _Pruebas automatizadas para comprobar el campo 'name' al crear un kit de productos_
 
@@ -92,3 +92,4 @@ del proyecto especificada, no distingue entre mayúsculas y minúsculas.
     "name": "Mi conjunto",
     "cardId": "1"
 }
+
