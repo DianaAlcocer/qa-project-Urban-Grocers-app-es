@@ -6,7 +6,7 @@
 
 - Se diseñó una solicitud para crear un nuevo usuario mediante solicitud API.
 - Se diseñó una solicitud para crear un kit personal para este usuario.
-- Se automatizaron pruebas exploratorias para el parametro "name" en el cuerpo de la solicitud.
+- Se automatizaron pruebas para el parametro "name" en el cuerpo de la solicitud.
 
 ### Contenido
 
@@ -92,4 +92,5 @@ del proyecto especificada, no distingue entre mayúsculas y minúsculas.
     "name": "Mi conjunto",
     "cardId": "1"
 }
+
 
